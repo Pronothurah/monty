@@ -1,5 +1,13 @@
 #include "monty.h"
 
+/**
+ * get_number_from_line - get number from line
+ * @j: index to start from line
+ * @line: opcode to execute
+ * @number: pointer to the new string
+ *
+ * Return: void
+ */
 void get_number_from_line(size_t j, char *line, char *number)
 {
 	size_t k;
@@ -18,6 +26,13 @@ void get_number_from_line(size_t j, char *line, char *number)
 	}
 }
 
+/**
+ * get_opcode_from_line - get opcode from line
+ * @line: opcode to execute
+ * @opcode: pointer to the new string
+ *
+ * Return: index of the last character of opcode
+ */
 int get_opcode_from_line(char *line, char *opcode)
 {
 	size_t i, j, k;
@@ -39,6 +54,13 @@ int get_opcode_from_line(char *line, char *opcode)
 	return (j);
 }
 
+/**
+ * execute_by_line - execute line from file
+ * @line: opcode to execute
+ * @stack: pointer to the list of stack_t
+ *
+ * Return: void
+ */
 void execute_by_line(char *line, stack_t **stack)
 {
 	char *opcode;

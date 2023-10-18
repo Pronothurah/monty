@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * get_opcodes - get an array of opcodes instruction_t
+ *
+ * Return: array of opcodes instruction_t
+ */
 instruction_t *get_opcodes()
 {
 	static instruction_t opcodes[] = {

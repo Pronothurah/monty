@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * swap_top_two_values - swap stack top 2 elements
+ * @stack: pointer to the list of stack_t
+ * @line_number: line number from file
+ *
+ * Return: void
+ */
 void swap_top_two_values(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
