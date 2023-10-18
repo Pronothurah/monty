@@ -2,14 +2,12 @@
 
 /**
  * get_fp_content - get file content line by line
- * @stack: pointer to the list of stack_t
  * @fp: file object
  *
  * Return: void
  */
-void get_fp_content(FILE *fp, stack_t **stack)
+void get_fp_content(FILE *fp)
 {
-	char *line = NULL;
 	size_t len = 0, i = 0, j;
 	ssize_t read;
 
@@ -26,7 +24,7 @@ void get_fp_content(FILE *fp, stack_t **stack)
 		}
 
 		line[j - 1] = line[j - 1] == '\n' ? '\0' : line[j - 1];
-		execute_by_line(line, stack);
+		execute_by_line(line);
 	}
 
 	free(line);
@@ -34,15 +32,12 @@ void get_fp_content(FILE *fp, stack_t **stack)
 
 /**
  * parse_input - parse line from file
- * @stack: pointer to the list of stack_t
  * @value: line from file
  *
  * Return: NULL
  */
-char **parse_input(char *value, stack_t **stack)
+char **parse_input(char *value)
 {
-	FILE *fp;
-
 	fp = fopen(value, "r");
 	if (fp == NULL)
 	{
@@ -50,7 +45,7 @@ char **parse_input(char *value, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 
-	get_fp_content(fp, stack);
+	get_fp_content(fp);
 	fclose(fp);
 
 	return (NULL);

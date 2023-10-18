@@ -9,12 +9,9 @@
  */
 void print_value_at_top(stack_t **stack, unsigned int line_number)
 {
+	(void)line_number;
 	if (*stack == NULL || stack == NULL)
-	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		free_stack(*stack);
-		exit(EXIT_FAILURE);
-	}
+		exit_cannot_action_on_stack("L%d: can't pint, stack empty\n");
 
 	printf("%d\n", (*stack)->n);
 }
