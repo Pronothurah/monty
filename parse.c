@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * get_fp_content - get file content line by line
+ * @stack: pointer to the list of stack_t
+ * @fp: file object
+ *
+ * Return: void
+ */
 void get_fp_content(FILE *fp, stack_t **stack)
 {
 	char *line = NULL;
@@ -25,6 +32,13 @@ void get_fp_content(FILE *fp, stack_t **stack)
 	free(line);
 }
 
+/**
+ * parse_input - parse line from file
+ * @stack: pointer to the list of stack_t
+ * @value: line from file
+ *
+ * Return: NULL
+ */
 char **parse_input(char *value, stack_t **stack)
 {
 	FILE *fp;
