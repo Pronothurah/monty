@@ -13,12 +13,9 @@ void add_top_two_values(stack_t **stack, unsigned int line_number)
 	stack_t *last = *stack;
 	int len = 0;
 
+	(void)line_number;
 	if (*stack == NULL || stack == NULL)
-	{
-		free_stack(*stack);
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		exit_cannot_action_on_stack("L%d: can't add, stack too short\n");
 
 	while (tmp != NULL)
 	{
@@ -27,11 +24,7 @@ void add_top_two_values(stack_t **stack, unsigned int line_number)
 	}
 
 	if (len < 2)
-	{
-		free_stack(*stack);
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		exit_cannot_action_on_stack("L%d: can't add, stack too short\n");
 
 	len = last->n;
 	len += last->next->n;

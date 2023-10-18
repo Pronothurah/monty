@@ -39,11 +39,15 @@ typedef struct instruction_s
 } instruction_t;
 
 extern stack_t *globalStack;
+extern int lineNumber;
+extern char *opcode;
+extern char *line;
+extern FILE *fp;
 
 instruction_t *get_opcodes();
-char **parse_input(char *value, stack_t **stack);
-void get_fp_content(FILE *fp, stack_t **stack);
-void execute_by_line(char *line, stack_t **stack);
+char **parse_input(char *value);
+void get_fp_content(FILE *fp);
+void execute_by_line(char *line);
 void push_to_stack(stack_t **stack, unsigned int line_number);
 void print_all_element_of_stack(stack_t **stack, unsigned int line_number);
 void print_value_at_top(stack_t **stack, unsigned int line_number);
@@ -52,6 +56,9 @@ void swap_top_two_values(stack_t **stack, unsigned int line_number);
 void add_top_two_values(stack_t **stack, unsigned int line_number);
 void do_nothing_on_stack(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
-void free_args(char **args);
+void exit_malloc(void);
+void exit_unknown_instruction(void);
+void exit_unknown_push_command(void);
+void exit_cannot_action_on_stack(char *message);
 
 #endif /* MONTY_H */

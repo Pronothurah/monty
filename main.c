@@ -10,7 +10,6 @@
 int main(int argc, char *argv[])
 {
 	char *input;
-	stack_t *globalStack = NULL;
 
 	if (argc != 2)
 	{
@@ -19,7 +18,7 @@ int main(int argc, char *argv[])
 	}
 
 	input = argv[1];
-	parse_input(input, &globalStack);
+	parse_input(input);
 	free_stack(globalStack);
 	globalStack = NULL;
 

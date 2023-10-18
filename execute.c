@@ -57,37 +57,28 @@ int get_opcode_from_line(char *line, char *opcode)
 /**
  * execute_by_line - execute line from file
  * @line: opcode to execute
- * @stack: pointer to the list of stack_t
  *
  * Return: void
  */
-void execute_by_line(char *line, stack_t **stack)
+void execute_by_line(char *line)
 {
-	char *opcode;
 	char number[5] = "x";
 	size_t j = 0, k = 0;
 	int num = 0;
 	instruction_t *opcodes = get_opcodes();
 
+	lineNumber++;
 	opcode = (char *)malloc(5);
 	if (opcode == NULL)
-	{
-		free_stack(*stack);
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		exit_malloc();
+
 	for (; j < 5; j++)
 		opcode[j] = '\0';
 	j = get_opcode_from_line(line, opcode);
 	get_number_from_line(j, line, number);
 
 	if (*number == 'x' && strcmp(opcode, "push") == 0)
-	{
-		free(opcode);
-		free_stack(*stack);
-		fprintf(stderr, "L<line_number>: usage: push integer");
-		exit(EXIT_FAILURE);
-	}
+		exit_unknown_push_command();
 
 	num = atoi(number);
 	k = 0;
@@ -95,12 +86,11 @@ void execute_by_line(char *line, stack_t **stack)
 		   strcmp(opcodes[k].opcode, opcode) != 0)
 		k++;
 
-	free(opcode);
 	if (opcodes[k].opcode != NULL)
-		opcodes[k].f(stack, (unsigned int)num);
-	else
 	{
-		fprintf(stderr, "L<line_number>: unknown instruction <opcode>");
-		exit(EXIT_FAILURE);
+		free(opcode);
+		opcodes[k].f(&globalStack, (unsigned int)num);
 	}
+	else
+		exit_unknown_instruction();
 }
