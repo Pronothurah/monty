@@ -39,11 +39,12 @@ void exit_malloc(void)
  */
 void exit_unknown_instruction(void)
 {
-	free(opcode);
 	free(line);
 	free_stack(globalStack);
 	fclose(fp);
+	opcode[strlen(opcode) - 1] = '\0';
 	fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
+	free(opcode);
 	exit(EXIT_FAILURE);
 }
 

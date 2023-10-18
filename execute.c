@@ -67,6 +67,9 @@ void execute_by_line(char *line)
 	int num = 0;
 	instruction_t *opcodes = get_opcodes();
 
+	if (strcmp(line, "") == 0)
+		return;
+
 	lineNumber++;
 	opcode = (char *)malloc(5);
 	if (opcode == NULL)
