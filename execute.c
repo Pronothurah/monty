@@ -73,9 +73,11 @@ void execute_by_line(char *line, stack_t **stack)
 	if (opcode == NULL)
 	{
 		free_stack(*stack);
-		fprintf(stderr, "Memory allocation error\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	for (; j < 5; j++)
+		opcode[j] = '\0';
 	j = get_opcode_from_line(line, opcode);
 	get_number_from_line(j, line, number);
 
@@ -90,10 +92,15 @@ void execute_by_line(char *line, stack_t **stack)
 	num = atoi(number);
 	k = 0;
 	while (opcodes[k].opcode != NULL &&
-		   strstr(opcodes[k].opcode, opcode) == NULL)
+		   strcmp(opcodes[k].opcode, opcode) != 0)
 		k++;
 
 	free(opcode);
 	if (opcodes[k].opcode != NULL)
 		opcodes[k].f(stack, (unsigned int)num);
+	else
+	{
+		fprintf(stderr, "L<line_number>: unknown instruction <opcode>");
+		exit(EXIT_FAILURE);
+	}
 }
