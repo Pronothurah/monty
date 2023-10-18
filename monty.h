@@ -52,5 +52,6 @@ void swap_top_two_values(stack_t **stack, unsigned int line_number);
 void add_top_two_values(stack_t **stack, unsigned int line_number);
 void do_nothing_on_stack(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
+void free_args(char **args);
 
 #endif /* MONTY_H */
