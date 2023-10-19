@@ -64,7 +64,7 @@ char **parse_input(char *value)
 	fp = fopen(value, "r");
 	if (fp == NULL)
 	{
-		fprintf(stderr, "Error: Can't open %s\n", value);
+		fprintf(stderr, "Error: Can't open file %s\n", value);
 		exit(EXIT_FAILURE);
 	}
 
