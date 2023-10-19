@@ -93,6 +93,8 @@ void subtract_top_from_second(stack_t **stack, unsigned int line_number);
 
 void multiply_top_and_second(stack_t **stack, unsigned int line_number);
 
+void mod_top_by_second(stack_t **stack, unsigned int line_number);
+
 bool is_comment_line(const char *line);
 
 void free_stack(stack_t *head);
