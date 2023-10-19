@@ -67,6 +67,9 @@ void execute_by_line(char *line)
 	int num = 0;
 	instruction_t *opcodes = get_opcodes();
 
+	if (is_comment_line(line))
+		return;
+
 	if (strcmp(line, "") == 0)
 		return;
 
