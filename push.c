@@ -13,7 +13,7 @@ void push_to_stack(stack_t **stack, unsigned int line_number)
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-		return;
+		exit_malloc();
 	new->n = line_number;
 	new->next = NULL;
 	new->prev = NULL;
