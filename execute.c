@@ -16,7 +16,7 @@ void get_number_from_line(size_t j, char *line, char *number)
 	for (; j < strlen(line); j++)
 	{
 		if (isalpha(line[j]))
-			exit_unknown_push_command();
+			break;
 
 		if (line[j] == '-' || isdigit(line[j]))
 		{
