@@ -70,29 +70,29 @@ void execute_by_line(char *line)
 	if (strcmp(line, "") == 0)
 		return;
 
-	lineNumber++;
-	opcode = (char *)malloc(5);
-	if (opcode == NULL)
+	(monty_instance.line_number)++;
+	monty_instance.opcode = (char *)malloc(5);
+	if (monty_instance.opcode == NULL)
 		exit_malloc();
 
 	for (; j < 5; j++)
-		opcode[j] = '\0';
-	j = get_opcode_from_line(line, opcode);
+		monty_instance.opcode[j] = '\0';
+	j = get_opcode_from_line(line, monty_instance.opcode);
 	get_number_from_line(j, line, number);
 
-	if (*number == 'x' && strcmp(opcode, "push") == 0)
+	if (*number == 'x' && strcmp(monty_instance.opcode, "push") == 0)
 		exit_unknown_push_command();
 
 	num = atoi(number);
 	k = 0;
 	while (opcodes[k].opcode != NULL &&
-		   strcmp(opcodes[k].opcode, opcode) != 0)
+		   strcmp(opcodes[k].opcode, monty_instance.opcode) != 0)
 		k++;
 
 	if (opcodes[k].opcode != NULL)
 	{
-		free(opcode);
-		opcodes[k].f(&globalStack, (unsigned int)num);
+		free(monty_instance.opcode);
+		opcodes[k].f(&(monty_instance.global_stack), (unsigned int)num);
 	}
 	else
 		exit_unknown_instruction();

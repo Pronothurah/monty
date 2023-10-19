@@ -25,9 +25,9 @@ void free_stack(stack_t *head)
  */
 void exit_malloc(void)
 {
-	free_stack(globalStack);
-	free(line);
-	fclose(fp);
+	free_stack(monty_instance.global_stack);
+	free(monty_instance.line);
+	fclose(monty_instance.fp);
 	fprintf(stderr, "Error: malloc failed\n");
 	exit(EXIT_FAILURE);
 }
@@ -39,12 +39,12 @@ void exit_malloc(void)
  */
 void exit_unknown_instruction(void)
 {
-	free(line);
-	free_stack(globalStack);
-	fclose(fp);
-	remove_any_digit(opcode);
-	fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
-	free(opcode);
+	free(monty_instance.line);
+	free_stack(monty_instance.global_stack);
+	fclose(monty_instance.fp);
+	remove_any_digit(monty_instance.opcode);
+	fprintf(stderr, "L%d: unknown instruction %s\n", monty_instance.line_number, monty_instance.opcode);
+	free(monty_instance.opcode);
 	exit(EXIT_FAILURE);
 }
 
@@ -55,11 +55,11 @@ void exit_unknown_instruction(void)
  */
 void exit_unknown_push_command(void)
 {
-	free(opcode);
-	free(line);
-	free_stack(globalStack);
-	fclose(fp);
-	fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
+	free(monty_instance.opcode);
+	free(monty_instance.line);
+	free_stack(monty_instance.global_stack);
+	fclose(monty_instance.fp);
+	fprintf(stderr, "L%d: usage: push integer\n", monty_instance.line_number);
 	exit(EXIT_FAILURE);
 }
 
@@ -71,9 +71,9 @@ void exit_unknown_push_command(void)
  */
 void exit_cannot_action_on_stack(char *message)
 {
-	free(line);
-	free_stack(globalStack);
-	fclose(fp);
-	fprintf(stderr, message, lineNumber);
+	free(monty_instance.line);
+	free_stack(monty_instance.global_stack);
+	fclose(monty_instance.fp);
+	fprintf(stderr, message, monty_instance.line_number);
 	exit(EXIT_FAILURE);
 }
