@@ -43,7 +43,9 @@ void exit_unknown_instruction(void)
 	free_stack(monty_instance.global_stack);
 	fclose(monty_instance.fp);
 	remove_any_digit(monty_instance.opcode);
-	fprintf(stderr, "L%d: unknown instruction %s\n", monty_instance.line_number, monty_instance.opcode);
+	fprintf(stderr, "L%d: unknown instruction %s\n",
+			monty_instance.line_number,
+			monty_instance.opcode);
 	free(monty_instance.opcode);
 	exit(EXIT_FAILURE);
 }
