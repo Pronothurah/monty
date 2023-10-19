@@ -18,6 +18,7 @@ instruction_t *get_opcodes()
 		{"sub", subtract_top_from_second},
 		{"mul", multiply_top_and_second},
 		{"mod", mod_top_by_second},
+		{"pchar", print_char_at_top},
 		{NULL, NULL}};
 
 	return (opcodes);
