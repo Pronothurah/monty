@@ -72,6 +72,7 @@ void pop_value_at_top(stack_t **stack, unsigned int line_number);
 void swap_top_two_values(stack_t **stack, unsigned int line_number);
 void add_top_two_values(stack_t **stack, unsigned int line_number);
 void do_nothing_on_stack(stack_t **stack, unsigned int line_number);
+void subtract_top_from_second(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
 void exit_malloc(void);
 void exit_unknown_instruction(void);

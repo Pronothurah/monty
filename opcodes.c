@@ -15,6 +15,7 @@ instruction_t *get_opcodes()
 		{"swap", swap_top_two_values},
 		{"add", add_top_two_values},
 		{"nop", do_nothing_on_stack},
+		{"sub", subtract_top_from_second},
 		{NULL, NULL}};
 
 	return (opcodes);
