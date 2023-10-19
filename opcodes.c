@@ -16,6 +16,7 @@ instruction_t *get_opcodes()
 		{"add", add_top_two_values},
 		{"nop", do_nothing_on_stack},
 		{"sub", subtract_top_from_second},
+		{"mul", multiply_top_and_second},
 		{NULL, NULL}};
 
 	return (opcodes);
