@@ -11,7 +11,7 @@
 
 void subtract_top_from_second(stack_t **stack, unsigned int line_number)
 {
-	int temp;
+	size_t temp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -19,9 +19,8 @@ void subtract_top_from_second(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*stack)->n;
-	*stack = (*stack)->next;
-
-	(*stack)->n -= temp;
+	temp = (*stack)->next->n - (*stack)->n;
+	pop_value_at_top(stack, line_number);
+	(*stack)->n = temp;
 }
 
