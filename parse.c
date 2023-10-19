@@ -1,6 +1,29 @@
 #include "monty.h"
 
 /**
+ * remove_any_digit - remove digit from string
+ * @fp: string input
+ *
+ * Return: void
+ */
+void remove_any_digit(char *str)
+{
+	int i, j;
+
+	j = 0;
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			str[j] = str[i];
+			j++;
+		}
+	}
+
+	str[j] = '\0';
+}
+
+/**
  * get_fp_content - get file content line by line
  * @fp: file object
  *
