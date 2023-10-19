@@ -34,23 +34,23 @@ void get_fp_content(FILE *fp)
 	size_t len = 0, i = 0, j;
 	ssize_t read;
 
-	while ((read = getline(&line, &len, fp)) != -1)
+	while ((read = getline(&(monty_instance.line), &len, fp)) != -1)
 	{
 		j = 0;
-		for (i = 0; line[i]; i++)
+		for (i = 0; monty_instance.line[i]; i++)
 		{
-			if (line[i] != ' ')
+			if (monty_instance.line[i] != ' ')
 			{
-				line[j] = line[i];
+				monty_instance.line[j] = monty_instance.line[i];
 				j++;
 			}
 		}
 
-		line[j - 1] = line[j - 1] == '\n' ? '\0' : line[j - 1];
-		execute_by_line(line);
+		monty_instance.line[j - 1] = monty_instance.line[j - 1] == '\n' ? '\0' : monty_instance.line[j - 1];
+		execute_by_line(monty_instance.line);
 	}
 
-	free(line);
+	free(monty_instance.line);
 }
 
 /**
@@ -61,15 +61,15 @@ void get_fp_content(FILE *fp)
  */
 char **parse_input(char *value)
 {
-	fp = fopen(value, "r");
-	if (fp == NULL)
+	monty_instance.fp = fopen(value, "r");
+	if (monty_instance.fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", value);
 		exit(EXIT_FAILURE);
 	}
 
-	get_fp_content(fp);
-	fclose(fp);
+	get_fp_content(monty_instance.fp);
+	fclose(monty_instance.fp);
 
 	return (NULL);
 }

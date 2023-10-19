@@ -20,8 +20,4 @@ instruction_t *get_opcodes()
 	return (opcodes);
 }
 
-int lineNumber = 0;
-stack_t *globalStack = NULL;
-char *opcode;
-FILE *fp;
-char *line = NULL;
+monty_t monty_instance = {NULL, 0, NULL, NULL, NULL};

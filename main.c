@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 
 	input = argv[1];
 	parse_input(input);
-	free_stack(globalStack);
-	globalStack = NULL;
+	free_stack(monty_instance.global_stack);
+	monty_instance.global_stack = NULL;
 
 	return (0);
 }

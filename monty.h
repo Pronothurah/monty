@@ -38,11 +38,27 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *globalStack;
-extern int lineNumber;
-extern char *opcode;
-extern char *line;
-extern FILE *fp;
+/**
+ * struct monty - monty data
+ * @opcode: the opcode
+ * @global_stack: the global stack
+ * @line_number: current line number of the file
+ * @line: current line of the file
+ * @fp: file object
+ *
+ * Description: monty and its data
+ * for monty file manipulation
+ */
+typedef struct monty
+{
+	stack_t *global_stack;
+	int line_number;
+	char *opcode;
+	char *line;
+	FILE *fp;
+} monty_t;
+
+extern monty_t monty_instance;
 
 instruction_t *get_opcodes();
 char **parse_input(char *value);
