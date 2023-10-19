@@ -39,14 +39,14 @@ void exit_malloc(void)
  */
 void exit_unknown_instruction(void)
 {
-	free(monty_instance.line);
 	free_stack(monty_instance.global_stack);
 	fclose(monty_instance.fp);
-	remove_any_digit(monty_instance.opcode);
+	remove_any_digit(monty_instance.line);
 	fprintf(stderr, "L%d: unknown instruction %s\n",
 			monty_instance.line_number,
-			monty_instance.opcode);
+			monty_instance.line);
 	free(monty_instance.opcode);
+	free(monty_instance.line);
 	exit(EXIT_FAILURE);
 }
 
