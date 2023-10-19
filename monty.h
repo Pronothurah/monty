@@ -91,6 +91,8 @@ void do_nothing_on_stack(stack_t **stack, unsigned int line_number);
 
 void subtract_top_from_second(stack_t **stack, unsigned int line_number);
 
+void divide_top_two_values(stack_t **stack, unsigned int line_number);
+
 void multiply_top_and_second(stack_t **stack, unsigned int line_number);
 
 void mod_top_by_second(stack_t **stack, unsigned int line_number);
