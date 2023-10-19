@@ -48,6 +48,7 @@ instruction_t *get_opcodes();
 char **parse_input(char *value);
 void get_fp_content(FILE *fp);
 void execute_by_line(char *line);
+void remove_any_digit(char *str);
 void push_to_stack(stack_t **stack, unsigned int line_number);
 void print_all_element_of_stack(stack_t **stack, unsigned int line_number);
 void print_value_at_top(stack_t **stack, unsigned int line_number);
