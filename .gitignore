@@ -2,3 +2,5 @@
 *.out
 *.exe
 monty
+alx_test_suite/
+alx_test_suite/**/**/monty
