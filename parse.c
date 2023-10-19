@@ -2,7 +2,7 @@
 
 /**
  * remove_any_digit - remove digit from string
- * @fp: string input
+ * @str: string input
  *
  * Return: void
  */
