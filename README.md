@@ -46,6 +46,6 @@
 
 *When the first non-space character of a line is #, treat this line as a comment (don’t do anything).*
 
-## TASK 9: `pchar`
+## TASK 11: `pchar`
 
 *The opcode prints the char at the top of the stack, followed by a new line*
