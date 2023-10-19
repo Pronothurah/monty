@@ -46,7 +46,9 @@ void get_fp_content(FILE *fp)
 			}
 		}
 
-		monty_instance.line[j - 1] = monty_instance.line[j - 1] == '\n' ? '\0' : monty_instance.line[j - 1];
+		monty_instance.line[j - 1] = (monty_instance.line[j - 1] == '\n')
+										 ? '\0'
+										 : (monty_instance.line[j - 1]);
 		execute_by_line(monty_instance.line);
 	}
 
