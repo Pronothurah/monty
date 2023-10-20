@@ -48,13 +48,13 @@
 
 ## TASK 11: `pchar`
 
-*The opcode prints the char at the top of the stack, followed by a new line*
+The opcode prints the char at the top of the stack, followed by a new line*
 
 ## TASK 12: `pstr`
-*The opcode pstr prints the string starting at the top of the stack, followed by a new line.
+The opcode pstr prints the string starting at the top of the stack, followed by a new line.
 
 ## TASK 13: `rotl`
-*The opcode rotl rotates the stack to the top.
+The opcode rotl rotates the stack to the top.
 
 ## TASK 13: `rotr`
-*The opcode rotr rotates the stack to the bottom.
+The opcode rotr rotates the stack to the bottom.
