@@ -21,6 +21,7 @@ instruction_t *get_opcodes()
 		{"mod", mod_top_by_second},
 		{"pchar", print_char_at_top},
 		{"pstr", pstr_top_of_stack},
+		{"rotl", rotate_stack_to_top},
 		{NULL, NULL}};
 
 	return (opcodes);
