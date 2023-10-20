@@ -19,6 +19,7 @@ void print_all_element_of_stack(
 	while (last != NULL)
 	{
 		printf("%d\n", last->n);
+		fflush(stdout);
 		last = last->next;
 	}
 }
