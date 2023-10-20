@@ -15,7 +15,14 @@ void get_number_from_line(size_t j, char *line, char *number)
 	k = 0;
 	for (; j < strlen(line); j++)
 	{
-		if (isalpha(line[j]))
+		if (isalpha(line[j + 1]))
+		{
+			for (k = 0; number[k]; k++)
+				number[k] = '\0';
+			break;
+		}
+
+		if (line[j + 1] == ' ')
 			break;
 
 		if (line[j] == '-' || isdigit(line[j]))
@@ -24,6 +31,9 @@ void get_number_from_line(size_t j, char *line, char *number)
 			k++;
 		}
 	}
+
+	if (number[0] == '\0')
+		*number = 'x';
 }
 
 /**
@@ -42,8 +52,10 @@ int get_opcode_from_line(char *line, char *opcode)
 		k = 0;
 		if (strchr("psandm", line[i]) != NULL)
 		{
-			for (j = i; j < (i + 4); j++)
+			for (j = i; line[j]; j++)
 			{
+				if (line[j] == ' ' || line[j] == '\0')
+					break;
 				*(opcode + k) = *(line + j);
 				k++;
 			}
