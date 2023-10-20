@@ -57,4 +57,4 @@
 *The opcode rotl rotates the stack to the top.
 
 ## TASK 13: `rotr`
-The opcode rotr rotates the stack to the bottom.
+*The opcode rotr rotates the stack to the bottom.
