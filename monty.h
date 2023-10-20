@@ -99,6 +99,8 @@ void mod_top_by_second(stack_t **stack, unsigned int line_number);
 
 void print_char_at_top(stack_t **stack, unsigned int line_number);
 
+void pstr_top_of_stack(stack_t **stack, unsigned int line_number);
+
 bool is_comment_line(const char *line);
 
 void free_stack(stack_t *head);
