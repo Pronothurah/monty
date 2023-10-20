@@ -12,12 +12,11 @@
 void multiply_top_and_second(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
-	stack_t *top = *stack;
-	stack_t *second_top = NULL;
+	stack_t *last = *stack;
 	int len = 0;
 
 	(void)line_number;
-	if (*stack == NULL || stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		exit_cannot_action_on_stack("L%d: can't mul, stack too short\n");
 
 	while (tmp != NULL)
@@ -27,13 +26,12 @@ void multiply_top_and_second(stack_t **stack, unsigned int line_number)
 	}
 
 	if (len < 2)
-	{
 		exit_cannot_action_on_stack("L%d: can't mul, stack too short\n");
-	}
 
-	second_top = top->next;
 
-	second_top->n *= top->n;
+	len = last->next->n * last->n;
 
-	push_to_stack(stack, top->n);
+	pop_value_at_top(stack, last->next->n);
+	pop_value_at_top(stack, last->n);
+	push_to_stack(stack, len);
 }
