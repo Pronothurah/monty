@@ -23,6 +23,6 @@ void print_char_at_top(stack_t **stack, unsigned int line_number)
 	{
 		exit_cannot_action_on_stack("L%u: can't pchar, value out of range");
 	}
-	putchar(value);
+	putchar((char)value);
 	putchar('\n');
 }
