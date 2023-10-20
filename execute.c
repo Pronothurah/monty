@@ -40,7 +40,7 @@ int get_opcode_from_line(char *line, char *opcode)
 	for (i = 0; i < strlen(line); i++)
 	{
 		k = 0;
-		if (strchr("psan", line[i]) != NULL)
+		if (strchr("psandm", line[i]) != NULL)
 		{
 			for (j = i; j < (i + 4); j++)
 			{

@@ -14,4 +14,5 @@ void print_value_at_top(stack_t **stack, unsigned int line_number)
 		exit_cannot_action_on_stack("L%d: can't pint, stack empty\n");
 
 	printf("%d\n", (*stack)->n);
+	fflush(stdout);
 }

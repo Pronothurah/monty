@@ -1,4 +1,4 @@
 clear
-for f in monty_project/task_0/*.sh; do
+for f in monty_project/task_$1/*.sh; do
   bash "$f" 
 done
