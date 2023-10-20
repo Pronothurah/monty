@@ -20,6 +20,7 @@ instruction_t *get_opcodes()
 		{"mul", multiply_top_and_second},
 		{"mod", mod_top_by_second},
 		{"pchar", print_char_at_top},
+		{"pstr", pstr_top_of_stack},
 		{NULL, NULL}};
 
 	return (opcodes);
