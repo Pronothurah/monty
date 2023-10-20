@@ -11,18 +11,20 @@
 void rotate_stack_to_top(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
+	stack_t *top = *stack;
+	stack_t *second_top = top->next;
 
 	(void)line_number;
 
 	if (*stack != NULL && (*stack)->next != NULL)
 	{
 		while (current->next != NULL)
+		{
 			current = current->next;
+		}
 
-		current->next = *stack;
-		(*stack)->prev = current;
-		*stack = (*stack)->next;
-		(*stack)->prev = NULL;
-		current->next->next = NULL;
+		current->next = top;
+		*stack = second_top;
+		top->next = NULL;
 	}
 }
