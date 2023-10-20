@@ -31,21 +31,12 @@ void remove_any_digit(char *str)
  */
 void get_fp_content(FILE *fp)
 {
-	size_t len = 0, i = 0, j;
+	size_t len = 0, j = 0;
 	ssize_t read;
 
 	while ((read = getline(&(monty_instance.line), &len, fp)) != -1)
 	{
-		j = 0;
-		for (i = 0; monty_instance.line[i]; i++)
-		{
-			if (monty_instance.line[i] != ' ')
-			{
-				monty_instance.line[j] = monty_instance.line[i];
-				j++;
-			}
-		}
-
+		j = strlen(monty_instance.line);
 		monty_instance.line[j - 1] = (monty_instance.line[j - 1] == '\n')
 										 ? '\0'
 										 : (monty_instance.line[j - 1]);
