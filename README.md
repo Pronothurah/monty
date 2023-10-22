@@ -59,7 +59,7 @@ The opcode rotl rotates the stack to the top.
 ## TASK 14: `rotr`
 The opcode rotr rotates the stack to the bottom.
 
-## TASK 16 `1000-school.bf`
+## TASK 15 `1000-school.bf`
 a Brainf*ck script that prints School, followed by a new line.
 
 ## TASK 16 `1001-school.bf`
