@@ -76,6 +76,7 @@ void execute_by_line(char *line)
 	size_t j = 0, k = 0;
 	int num = 0;
 	instruction_t *opcodes = get_opcodes();
+	(monty_instance.line_number)++;
 
 	if (is_comment_line(line))
 		return;
@@ -83,7 +84,6 @@ void execute_by_line(char *line)
 	if (strcmp(line, "") == 0)
 		return;
 
-	(monty_instance.line_number)++;
 	monty_instance.opcode = (char *)malloc(5);
 	if (monty_instance.opcode == NULL)
 		exit_malloc();
