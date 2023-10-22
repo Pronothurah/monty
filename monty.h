@@ -69,9 +69,11 @@ extern monty_t monty_instance;
 
 instruction_t *get_opcodes();
 char **parse_input(char *value);
+int isWhitespaceString(const char *str);
 
 void get_fp_content(FILE *fp);
 void execute_by_line(char *line);
+int check_number(char *number);
 
 void remove_any_digit(char *str);
 

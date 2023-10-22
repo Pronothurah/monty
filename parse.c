@@ -1,6 +1,25 @@
 #include "monty.h"
 
 /**
+ * isWhitespaceString - checks if a string is only
+ * containing whitespaces:
+ * @str: string to check
+ *
+ * Return: 1 if white space string or else 0
+ */
+int isWhitespaceString(const char *str)
+{
+	while (*str != '\0')
+	{
+		if (*str != ' ' && *str != '\t' && *str != '\n')
+			return (0);
+		str++;
+	}
+
+	return (1);
+}
+
+/**
  * remove_any_digit - remove digit from string
  * @str: string input
  *

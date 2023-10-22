@@ -1,6 +1,26 @@
 #include "monty.h"
 
 /**
+ * check_number - check if the number contains c
+ * @number: number to check
+ *
+ * Return: 1 if c is in it or else 0
+ */
+int check_number(char *number)
+{
+	int i;
+
+	if (*number == 'x')
+		return (1);
+
+	for (i = 0; number[i]; i++)
+		if (number[i] == 'c')
+			return (1);
+
+	return (0);
+}
+
+/**
  * get_number_from_line - get number from line
  * @j: index to start from line
  * @line: opcode to execute
@@ -15,23 +35,22 @@ void get_number_from_line(size_t j, char *line, char *number)
 	k = 0;
 	for (; j < strlen(line); j++)
 	{
-		if (isalpha(line[j + 1]))
-		{
-			if (*number == 'x')
-				for (k = 0; number[k]; k++)
-					number[k] = '\0';
-			break;
-		}
 
 		if (line[j] == '-' || isdigit(line[j]))
 		{
 			*(number + k) = line[j];
 			k++;
+
+			if (line[j + 1] == ' ')
+				break;
+
+			if (isalpha(line[j + 1]))
+			{
+				number[k] = 'c';
+				break;
+			}
 		}
 	}
-
-	if (number[0] == '\0')
-		*number = 'x';
 }
 
 /**
@@ -81,7 +100,7 @@ void execute_by_line(char *line)
 	if (is_comment_line(line))
 		return;
 
-	if (strcmp(line, "") == 0)
+	if (strcmp(line, "") == 0 || isWhitespaceString(line) == 1)
 		return;
 
 	monty_instance.opcode = (char *)malloc(5);
@@ -93,7 +112,7 @@ void execute_by_line(char *line)
 	j = get_opcode_from_line(line, monty_instance.opcode);
 	get_number_from_line(j, line, number);
 
-	if (*number == 'x' && strcmp(monty_instance.opcode, "push") == 0)
+	if (check_number(number) == 1 && strcmp(monty_instance.opcode, "push") == 0)
 		exit_unknown_push_command();
 
 	if (*(monty_instance.opcode) == '#')
