@@ -17,8 +17,9 @@ void get_number_from_line(size_t j, char *line, char *number)
 	{
 		if (isalpha(line[j + 1]))
 		{
-			for (k = 0; number[k]; k++)
-				number[k] = '\0';
+			if (*number == 'x')
+				for (k = 0; number[k]; k++)
+					number[k] = '\0';
 			break;
 		}
 
@@ -47,7 +48,7 @@ int get_opcode_from_line(char *line, char *opcode)
 	for (i = 0; line[i]; i++)
 	{
 		k = 0;
-		if (strchr("psandmr", line[i]) != NULL)
+		if (strchr("psandmr", line[i]) != NULL || line[i] == '#')
 		{
 			for (j = i; line[j]; j++)
 			{
@@ -94,6 +95,9 @@ void execute_by_line(char *line)
 
 	if (*number == 'x' && strcmp(monty_instance.opcode, "push") == 0)
 		exit_unknown_push_command();
+
+	if (*(monty_instance.opcode) == '#')
+		return;
 
 	num = atoi(number);
 	k = 0;
