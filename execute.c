@@ -22,9 +22,6 @@ void get_number_from_line(size_t j, char *line, char *number)
 			break;
 		}
 
-		if (line[j + 1] == ' ')
-			break;
-
 		if (line[j] == '-' || isdigit(line[j]))
 		{
 			*(number + k) = line[j];
@@ -47,7 +44,7 @@ int get_opcode_from_line(char *line, char *opcode)
 {
 	size_t i, j, k;
 
-	for (i = 0; i < strlen(line); i++)
+	for (i = 0; line[i]; i++)
 	{
 		k = 0;
 		if (strchr("psandmr", line[i]) != NULL)
