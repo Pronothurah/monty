@@ -59,6 +59,11 @@ The opcode rotl rotates the stack to the top.
 ## TASK 14: `rotr`
 The opcode rotr rotates the stack to the bottom.
 
+## TASK 15: `stack` and `queue`
+*Stack and queue opcodes.*
+- The opcode stack sets the format of the data to a stack (LIFO). This is the default behavior of the program.
+- The opcode queue sets the format of the data to a queue (FIFO).
+
 ## TASK 16 `1000-school.bf`
 a Brainf*ck script that prints School, followed by a new line.
 

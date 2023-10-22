@@ -23,6 +23,8 @@ instruction_t *get_opcodes()
 		{"pstr", pstr_top_of_stack},
 		{"rotl", rotate_stack_to_top},
 		{"rotr", rotate_stack_to_bottom},
+		{"stack", stack_set_to_lifo},
+		{"queue", queue_set_to_fifo},
 		{NULL, NULL}};
 
 	return (opcodes);

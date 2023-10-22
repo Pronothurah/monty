@@ -97,6 +97,8 @@ void multiply_top_and_second(stack_t **stack, unsigned int line_number);
 
 void mod_top_by_second(stack_t **stack, unsigned int line_number);
 
+bool is_comment_line(const char *line);
+
 void print_char_at_top(stack_t **stack, unsigned int line_number);
 
 void pstr_top_of_stack(stack_t **stack, unsigned int line_number);
@@ -105,7 +107,9 @@ void rotate_stack_to_top(stack_t **stack, unsigned int line_number);
 
 void rotate_stack_to_bottom(stack_t **stack, unsigned int line_number);
 
-bool is_comment_line(const char *line);
+void stack_set_to_lifo(stack_t **stack, unsigned int line_number);
+
+void queue_set_to_fifo(stack_t **stack, unsigned int line_number);
 
 void free_stack(stack_t *head);
 void exit_malloc(void);
